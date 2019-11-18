@@ -93,7 +93,7 @@ void setup() {
     // use the code below to change accel/gyro offset values
     /*
     Serial.println("Updating internal sensor offsets...");
-    // -76	-2359	1688	0	0	0
+    // -76  -2359 1688  0 0 0
     Serial.print(accelgyro.getXAccelOffset()); Serial.print("\t"); // -76
     Serial.print(accelgyro.getYAccelOffset()); Serial.print("\t"); // -2359
     Serial.print(accelgyro.getZAccelOffset()); Serial.print("\t"); // 1688
@@ -128,12 +128,18 @@ void loop() {
     #ifdef OUTPUT_READABLE_ACCELGYRO
         // display tab-separated accel/gyro x/y/z values
 //        Serial.print("a/g:\t");
-        Serial.print(ax); Serial.print("\t");
-        Serial.print(ay); Serial.print("\t");
-        Serial.print(az); Serial.print("\t");
-        Serial.print(gx); Serial.print("\t");
-        Serial.print(gy); Serial.print("\t");
+        Serial.print(ax);
+        Serial.print(" ");
+        Serial.print(ay);
+        Serial.print(" ");
+        Serial.print(az);
+        Serial.print(" ");
+        Serial.print(gx);
+        Serial.print(" ");
+        Serial.print(gy);
+        Serial.print(" ");
         Serial.println(gz);
+        delay(100);
     #endif
 
     #ifdef OUTPUT_BINARY_ACCELGYRO
@@ -148,5 +154,5 @@ void loop() {
     // blink LED to indicate activity
     blinkState = !blinkState;
     digitalWrite(LED_PIN, blinkState);
-    delay(100);
+    
 }
